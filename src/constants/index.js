@@ -43,9 +43,9 @@ export const features = [
   {
     id: "feature-1",
     icon: star,
-    title: "Rewards",
+    title: "Donations",
     content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+      "Transfering your money directly to the person in need in no time.",
   },
   {
     id: "feature-2",
@@ -57,9 +57,9 @@ export const features = [
   {
     id: "feature-3",
     icon: send,
-    title: "Balance Transfer",
+    title: "Campaigns",
     content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+      "Running campaigns to reach as many people to us join in our cause.",
   },
 ];
 
@@ -67,7 +67,7 @@ export const feedback = [
   {
     id: "feedback-1",
     content:
-      "Money is only a tool. It will take you wherever you wish, but it will not replace you as the driver.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     name: "Herman Jensen",
     title: "Founder & Leader",
     img: people01,
@@ -75,7 +75,7 @@ export const feedback = [
   {
     id: "feedback-2",
     content:
-      "Money makes your life easier. If you're lucky to have it, you're lucky.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     name: "Steve Mark",
     title: "Founder & Leader",
     img: people02,
@@ -83,7 +83,7 @@ export const feedback = [
   {
     id: "feedback-3",
     content:
-      "It is usually people in the money business, finance, and international trade that are really rich.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
     name: "Kenn Gallagher",
     title: "Founder & Leader",
     img: people03,
@@ -93,18 +93,18 @@ export const feedback = [
 export const stats = [
   {
     id: "stats-1",
-    title: "User Active",
-    value: "3800+",
+    title: "Active Users",
+    value: "300+",
   },
   {
     id: "stats-2",
-    title: "Trusted by Company",
-    value: "230+",
+    title: "Campaigns",
+    value: "200+",
   },
   {
     id: "stats-3",
-    title: "Transaction",
-    value: "$230M+",
+    title: "Donations",
+    value: "200+",
   },
 ];
 
@@ -221,11 +221,13 @@ export const navlinks = [
     name: "dashboard",
     imgUrl: dashboard,
     link: "/home",
+    done: "false",
   },
   {
     name: "campaign",
     imgUrl: createCampaign,
     link: "/create-campaign",
+    done: "false",
   },
   // {
   //   name: "payment",
@@ -243,11 +245,12 @@ export const navlinks = [
     name: "profile",
     imgUrl: profile,
     link: "/profile",
+    done: "false",
   },
   {
     name: "logout",
     imgUrl: logout,
     link: "/",
-    disabled: true,
+    done: "true",
   },
 ];

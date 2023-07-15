@@ -8,34 +8,68 @@ import { slideIn } from "../utils/motion";
 import axios from "axios";
 import { useContext } from "react";
 import { Context } from "../context/Context";
+import { Link, useHistory } from "react-router-dom";
 
-const Login = () => {
+const Login1 = () => {
   // const userRef = useRef();
   // const passwordRef = useRef();
-  const { dispatch, isFetching } = useContext(Context);
+
   const [email, setemail] = useState("");
   const [pass, setpass] = useState("");
-
+  const { dispatch, isFetching } = useContext(Context);
+  const history = useHistory();
   // console.log(userRef.current.value,passwordRef.current.value)
+  console.log(email, pass);
+  // const handleSubmit = async (e) => {
+  //   // console.log(email, pass);
+  //   e.preventDefault();
+  //   dispatch({ type: "LOGIN_START" });
+  //   try {
+  //     const config = { headers: { type: "application/json" } };
+  //     const { res } = await axios
+  //       .post(
+  //         "http://localhost:5000/login",
+  //         {
+  //           email: email,
+  //           password: pass,
+  //         },
+  //         config
+  //       )
+  //       .then((response) => {
+  //         console.log(response);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //     console.log(res);
+  //     dispatch({ type: "LOGIN_SUCCESS", payload: res.data }).then(
+  //       history.push("http://localhost:3000/home")
+  //     );
+  //     console.log(res.data);
+  //   } catch (err) {
+  //     dispatch({ type: "LOGIN_FAILURE" });
+  //     console.log(err);
+  //   }
+  // };
 
   const handleSubmit = async (e) => {
-    console.log(email, pass);
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
     try {
-      const res = await axios
-        .post("http://localhost:5000/login", {
+      const config = { headers: { type: "application/json" } };
+      const response = await axios.post(
+        "http://localhost:5000/login",
+        {
           email: email,
           password: pass,
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
-      console.log(res.data);
+        },
+        config
+      );
+      console.log(response);
+      const { data } = response; // Destructure 'data' property from response
+      console.log(data);
+      dispatch({ type: "LOGIN_SUCCESS", payload: data });
+      history.push("/home");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
       console.log(err);
@@ -53,31 +87,38 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
           <label className="flex flex-col">
-            <sapn className="text-white font-medium mb-4">Your Email</sapn>
+            <span className="text-white font-medium mb-4">Your Email</span>
             <input
               type="email"
               name="email"
               onChange={(e) => setemail(e.target.value)}
               placeholder="Email"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
+              className="bg-tertiary1 py-4 px-6 placeholder:text-secondary1 text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
-            <sapn className="text-white font-medium mb-4">Password</sapn>
+            <span className="text-white font-medium mb-4">Password</span>
             <input
               type="string"
               name="password"
               onChange={(e) => setpass(e.target.value)}
               placeholder="Password"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
+              className="bg-tertiary1 py-4 px-6 placeholder:text-secondary1 text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
           <button
             type="submit"
             disabled={isFetching}
-            className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
+            className="bg-tertiary1 py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary1 rounded-xl"
           >
             Login
+          </button>
+          <button
+            type="submit"
+            disabled={isFetching}
+            className="bg-tertiary1 py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary1 rounded-xl"
+          >
+            <Link to="/signup">Don't have an account signup instead</Link>
           </button>
         </form>
       </motion.dev>
@@ -91,4 +132,4 @@ const Login = () => {
   );
 };
 
-export default SectionWrapper(Login, "login");
+export default SectionWrapper(Login1, "login1");

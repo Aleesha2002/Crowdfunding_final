@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { SignUp, StarsCanvas, Login } from "./components";
+import { Signup1, StarsCanvas, Login1 } from "./components";
 import { Context } from "./context/Context";
 function App() {
   const { user } = useContext(Context);
@@ -10,7 +10,7 @@ function App() {
         <Route path="/signup">
           <div className="relative z-0 bg-primary1">
             <div className="relative z-0">
-              <SignUp />
+              <Signup1 />
               <StarsCanvas />
             </div>
           </div>
@@ -19,7 +19,7 @@ function App() {
         <Route path="/login">
           <div className="relative z-0 bg-primary1">
             <div className="relative z-0">
-              <Login />
+              <Login1 />
               <StarsCanvas />
             </div>
           </div>

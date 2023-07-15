@@ -5,8 +5,9 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const SignUp = () => {
+const Signup1 = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,12 +18,12 @@ const SignUp = () => {
     setError(false);
     try {
       console.log("signup");
-      const res = await axios.post("http://localhost:5000/register", {
+      const response = await axios.post("http://localhost:5000/signup", {
         name,
         email,
         password,
       });
-      res.data && window.location.replace("/login");
+      response.data && window.location.replace("/login");
     } catch (err) {
       setError(true);
       console.log(err);
@@ -46,7 +47,7 @@ const SignUp = () => {
               name="name"
               onChange={(e) => setName(e.target.value)}
               placeholder="Enter your name"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
+              className="bg-tertiary1 py-4 px-6 placeholder:text-secondary1 text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
@@ -56,7 +57,7 @@ const SignUp = () => {
               name="email"
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
+              className="bg-tertiary1 py-4 px-6 placeholder:text-secondary1 text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
@@ -66,14 +67,20 @@ const SignUp = () => {
               name="password"
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter password"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium"
+              className="bg-tertiary1 py-4 px-6 placeholder:text-secondary1 text-white rounded-lg outlined-none border-none font-medium"
             />
           </label>
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl"
+            className="bg-tertiary1 py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary1 rounded-xl"
           >
             Sign Up
+          </button>
+          <button
+            type="submit"
+            className="bg-tertiary1 py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary1 rounded-xl"
+          >
+            <Link to="/login">Already, have an account Login instead</Link>
           </button>
         </form>
       </motion.dev>
@@ -87,4 +94,4 @@ const SignUp = () => {
   );
 };
 
-export default SectionWrapper(SignUp, "signup");
+export default SectionWrapper(Signup1, "signup1");

@@ -6,15 +6,17 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import App from "./App.js";
 import "./index.css";
 import { StateContextProvider } from "./context";
-
+import { ContextProvider } from "./context/Context.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <ThirdwebProvider activeChain={Sepolia}>
-    <Router>
-      <StateContextProvider>
-        <App />
-      </StateContextProvider>
-    </Router>
+    <ContextProvider>
+      <Router>
+        <StateContextProvider>
+          <App />
+        </StateContextProvider>
+      </Router>
+    </ContextProvider>
   </ThirdwebProvider>
 );

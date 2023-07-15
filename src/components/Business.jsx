@@ -30,8 +30,8 @@ const Business = () => {
     <section id="features" className={layout.section}>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
-          You do the Business, <br className="sm:block hidden" /> we'll handle
-          the money.
+          Even the smallest amount, <br className="sm:block hidden" /> can make
+          a huge impact.
         </h2>
         <p className={`${styles.paragraph} max-w-[470px] mt-5 text-[#ededed] `}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

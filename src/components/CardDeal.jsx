@@ -8,8 +8,7 @@ const CardDeal = () => {
     <section className={layout.section}>
       <div className={layout.sectionInfo}>
         <h2 className={styles.heading2}>
-          Find a better card deal <br className="sm:block hidden" /> in few easy
-          steps.{" "}
+          A small place where <br className="sm:block hidden" /> Healing begins.
         </h2>
         <p className={`${styles.paragraph} text-[#ededed] max-w-[470px] mt-5`}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

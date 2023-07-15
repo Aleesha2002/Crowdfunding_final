@@ -54,7 +54,7 @@ const Login = () => {
 
         <form onSubmit={handleSubmit} className="mt-12 flex flex-col gap-8">
           <label className="flex flex-col">
-            <sapn className="text-white font-medium mb-4">Your Email</sapn>
+            <span className="text-white font-medium mb-4">Your Email</span>
             <input
               type="email"
               name="email"
@@ -65,7 +65,7 @@ const Login = () => {
             />
           </label>
           <label className="flex flex-col">
-            <sapn className="text-white font-medium mb-4">Password</sapn>
+            <span className="text-white font-medium mb-4">Password</span>
             <input
               type="string"
               name="password"

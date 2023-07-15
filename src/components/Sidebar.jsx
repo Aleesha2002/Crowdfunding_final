@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { logo, sun } from "../assets";
+import { logo } from "../assets";
 import { navlinks } from "../constants";
+import { Context } from "../context/Context";
 
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
   <div
@@ -27,6 +28,7 @@ const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
 const Sidebar = () => {
   const history = useHistory();
   const [isActive, setIsActive] = useState("dashboard");
+  const { user, dispatch } = useContext(Context);
 
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[93vh]">
@@ -42,9 +44,17 @@ const Sidebar = () => {
               {...link}
               isActive={isActive}
               handleClick={() => {
-                if (!link.disabled) {
+                if (link.done == "false") {
                   setIsActive(link.name);
                   history.push(link.link);
+                } else {
+                  if (link.done == "true") {
+                    // {
+                    //   user && "LOGOUT";
+                    // }
+                    dispatch({ type: "LOGOUT" });
+                    history.push("/");
+                  }
                 }
               }}
             />
